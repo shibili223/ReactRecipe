@@ -4,7 +4,7 @@ import Card from "./Card";
 const SearchList = ({data}) => {
 
     return(
-        <div className="card-wrapper">
+        <div className="card-wrapper" style={{backgroundColor:"#ffff" }}>
        {  data.map((item) => {
         return(
 

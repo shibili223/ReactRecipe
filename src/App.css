@@ -7,6 +7,8 @@
 
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
  .wrapper{
   width: 100%;
@@ -50,14 +52,16 @@
   cursor: pointer;
  }
 
+
  .card{
-  width: 55%;
+  width: 24%;
   height: Auto;
   border: 1px solid rgb(199, 103, 103);
+  background-color: aliceblue;
 
  }
  .card img{
-  width: 292px;
+  width: 294px;
   height: 270px;
   object-fit: cover;
  }
@@ -72,6 +76,9 @@
  }
  .card-wrapper{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
+  width: 1235px;
  }
+ 

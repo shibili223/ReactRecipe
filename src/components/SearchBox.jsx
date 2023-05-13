@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import Card from "./Card";
+const SearchBox = ({setSearchInput, searchInput}) =>{
+    // console.log(data)
 
-const SearchBox = () =>{
     return(
-        <div className="SearchBox">
-            <input type="text" placeholder="Search here..." value="" />
+        <div>
+            <div className="SearchBox">
+                <input type="text"
+                onChange={(e) => setSearchInput(e.target.value)}
+                placeholder="Search here..." value={searchInput} 
+                />
+             </div>
+
+        
+           
         </div>
     )
 }
