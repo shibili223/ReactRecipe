@@ -9,20 +9,14 @@ import Wrapper from "./Wrapper";
 const Main = () => {
     const [data, setData] = useState([])
     
-    // useEffect(() =>{
-    //     const fetchData = async () => {
-    //         const { data } = await axios.get("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
-    //         setData(data.meals)
-    //     }
-    //     fetchData()
+    const [searchInput, setSearchInput] = useState('a')
 
-    // }, [])
 
     useEffect(() =>{
         const fetchData = async () => {
             const { data } = await axios({
                 method :"get",
-                url : "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
+                url : "https://www.themealdb.com/api/json/v1/1/search.php?f=" + searchInput
 
             })
             setData(data.meals)
@@ -30,14 +24,25 @@ const Main = () => {
         }
         fetchData()
 
-    }, [])
+    }, [searchInput])
+    const filteredData = data?.filter?.(x => {
+        // console.log(x)
+
+        if(!searchInput) {
+            return true
+        }
+
+        return x.strMeal?.toLowerCase().includes(searchInput?.toLowerCase())
+    } ) ?? [];
+
 
     return(
         <>
             <Wrapper>
-                <SearchBox />
-                <SearchList data={data} />
+                <SearchBox setSearchInput={setSearchInput} searchInput={searchInput} />
             </Wrapper>
+            <SearchList data={data || []} />
+
 
         </>
           
